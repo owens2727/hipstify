@@ -15,6 +15,7 @@ import HipstifyLogo from './hipstify-logo.svg';
  *
  * button for authorizing with spotify (general intro handling)
  * CSS on root should apply to everything
+ * favicon link in messages doesn't work
  * copy improvements
  * deploy
  * hover card

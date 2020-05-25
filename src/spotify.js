@@ -1,16 +1,17 @@
 import { getRequest, buildUrl } from 'shallan/dom';
 
 const spotifyAuthUrl = () => {
-  const scopes = [
+  const scope = encodeURIComponent([
     'user-top-read'
-  ].join(' ')
+  ].join(' '));
 
   const url = 'https://accounts.spotify.com/authorize';
   const query = {
     client_id: '5819fcfe72054f889d199cf0cdbc65d2',
     response_type: 'token',
     redirect_uri: 'http://hipstifyme.com/',
-    scopes,
+    // redirect_uri: 'http://localhost:3000/',
+    scope,
     show_dialog: true,
   }
 
