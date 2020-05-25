@@ -9407,12 +9407,13 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-shallan@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/shallan/-/shallan-1.0.0.tgz#609d9d18840bb72d3dab434a2bdb6ec4792b8787"
-  integrity sha512-+UYWqxGuvohVgApgi2dmX+Ei4p+a6g0xX53c+TG0axhAJ9pdrYhZW5OZIAVAi84lTfEMfZKRymJ/YoL2DUJ3nQ==
+shallan@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/shallan/-/shallan-1.1.0.tgz#019f080fad2a9880788c4655f13bb04ce0a64fb5"
+  integrity sha512-6rKoWkBdwOq7m6BKbRShF3rfHuVzBJ9Hwx5ub4sbEPPSjI0yAoiW0qKRY+8vkS/qT3JtzqCL8CnLFfScH4eeKg==
   dependencies:
     "@emotion/core" "^10.0.28"
+    query-string "^6.12.1"
 
 shallow-clone@^0.1.2:
   version "0.1.2"
