@@ -54,10 +54,10 @@ const css = {
 const ArtistCard = props => {
   const { artist } = props;
   const bandcampLink = `https://${artist.name.replace(/\s+/g, '').toLowerCase()}.bandcamp.com`;
-
+  const imageUrl = !!artist.images[0] ? artist.images[0].url : '';
   return (
     <div css={css.artistCard}>
-      <img css={css.image} src={artist.images[0].url} alt={artist.name} />
+      <img css={css.image} src={imageUrl} alt={artist.name} />
       <div css={css.details}>
         <p css={css.name}>{artist.name}</p>
         <p css={css.followerCount}>{formatNumber(artist.followers.total)} followers</p>
