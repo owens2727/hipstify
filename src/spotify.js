@@ -9,7 +9,7 @@ const spotifyAuthUrl = () => {
   const query = {
     client_id: '5819fcfe72054f889d199cf0cdbc65d2',
     response_type: 'token',
-    redirect_uri: 'http://localhost:3000/spotify-auth',
+    redirect_uri: 'http://hipstifyme.com/',
     scopes,
     show_dialog: true,
   }
