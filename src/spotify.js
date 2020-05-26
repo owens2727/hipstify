@@ -9,8 +9,7 @@ const spotifyAuthUrl = () => {
   const query = {
     client_id: '5819fcfe72054f889d199cf0cdbc65d2',
     response_type: 'token',
-    redirect_uri: 'http://hipstifyme.com/',
-    // redirect_uri: 'http://localhost:3000/',
+    redirect_uri: process.env.REACT_APP_SPOTIFY_REDIRECT_URI,
     scope,
     show_dialog: true,
   }

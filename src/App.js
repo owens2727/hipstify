@@ -13,14 +13,14 @@ import HipstifyLogo from './hipstify-logo.svg';
 /**
  * TODO
  *
- * button for authorizing with spotify (general intro handling)
- * CSS on root should apply to everything
- * favicon link in messages doesn't work
- * copy improvements
- * deploy
- * hover card
- * spotify branding guide
- * all CSS should live in shallan - these should all be generic components
+ * 1. dynamic redirect_uri for spotify
+ * 2. more reliable bandcamp linking
+ * 3. mobile friendly
+ * 4. better stale token handling
+ * 5. CSS on root should apply to everything
+ * 6. favicon link in messages doesn't work
+ * 7. copy improvements
+ * 8. all CSS should live in shallan - these should all be generic components
  */
 
 const css = {
