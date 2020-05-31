@@ -5,19 +5,24 @@ import { formatNumber } from 'shallan/format';
 import { compose, withState } from 'recompose';
 import PulseLoader from "react-spinners/PulseLoader";
 
+const sizeIphone = '@media (max-width: 600px)';
+
 
 const css = {
   artistCard: {
-    width: 300,
-    height: 450,
+    maxWidth: 300,
+    maxHeight: 450,
     margin: 25,
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
+    [sizeIphone]: {
+      margin: '10px 0',
+    }
   },
   image: {
-    height: 300,
-    width: 300
+    maxHeight: 300,
+    maxWidth: 300
   },
   name: {
     fontSize: 17,
@@ -61,9 +66,10 @@ const css = {
 const getMerchLink = async props => {
   const { artist, setIsGettingMerchLink, setMessage } = props;
   setIsGettingMerchLink(true)
-  const resp = await getRequest({ url: `${process.env.REACT_APP_HIPSITY_API}/merch-url`, query: { artist: artist.name }})
+  const resp = await getRequest({ url: `${process.env.REACT_APP_HIPSTIFY_API}/merch-url`, query: { artist: artist.name }})
+  setIsGettingMerchLink(false)
   if (resp.url) {
-    window.location = resp.url;
+    window.location.href = resp.url;
   } else {
     setMessage("We couldn't find a merch link for this artist, but they could still use your support. Try looking them up directly!")
     setTimeout(() => {

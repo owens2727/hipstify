@@ -22,13 +22,14 @@ import HipstifyLogo from './hipstify-logo.svg';
  * - all CSS should live in shallan - these should all be generic components
  */
 
+const sizeIphone = '@media (max-width: 600px)';
+
 const css = {
   app: {
-    width: `100vw`,
-    minHeight: `100vh`,
+    width: `100%`,
+    height: `100%`,
     fontFamily: 'Futura',
     lineHeight: '150%',
-    backgroundColor: '#4ECDC4',
     color: `#272727`,
   },
   contents: {
@@ -40,7 +41,8 @@ const css = {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: 1100,
+    justifyContent: 'center',
+    maxWidth: 1100,
     marginBottom: 200,
   },
   header: {
@@ -48,47 +50,60 @@ const css = {
     flexDirection: `column`,
     alignItems: `center`,
     marginTop: 60,
-    width: `600px`
+    [sizeIphone]: {
+      marginTop: 5,
+      width: '90%',
+    }
   },
   logo: {
     height: 92,
-    width: 267,
   },
   subtitle: {
     margin: 20,
     fontSize: 22,
     color: `white`,
     fontWeight: 'initial',
-    width: 450,
-    textAlign: 'center'
+    textAlign: 'center',
+    [sizeIphone]: {
+      width: '90%',
+      fontSize: 12,
+    }
   },
   connectCard: {
     marginTop: 50,
-    height: 260,
-    width: 520,
-    padding: 40,
+    maxWidth: 520,
+    width: '90%',
+    padding: 30,
     justifyContent: 'space-between',
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    margin: '5%',
+    [sizeIphone]: {
+      padding: 5,
+    }
   },
   description: {
     fontSize: 19,
     textAlign: 'center',
     p: {
       marginBottom: 30,
+    },
+    [sizeIphone]: {
+      fontSize: 13,
     }
   },
   connectButton: {
     backgroundColor: '#272727',
     height: 60,
-    width: 220,
+    // width: 220,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     textDecoration: 'none',
     margin: 10,
+    padding: '0px 15px',
   },
   connectButtonContent: {
     fontSize: 17,
@@ -106,7 +121,14 @@ const css = {
     top: 40,
     right: 20,
     backgroundColor: 'white',
+    maxWidth: 400,
     padding: 20,
+    [sizeIphone]: {
+      right: 'initial',
+      margin: '0 5%',
+      top: 10,
+      padding: 10
+    }
   }
 };
 
