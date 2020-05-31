@@ -13,14 +13,13 @@ import HipstifyLogo from './hipstify-logo.svg';
 /**
  * TODO
  *
- * 1. dynamic redirect_uri for spotify
- * 2. more reliable bandcamp linking
- * 3. mobile friendly
- * 4. better stale token handling
- * 5. CSS on root should apply to everything
- * 6. favicon link in messages doesn't work
- * 7. copy improvements
- * 8. all CSS should live in shallan - these should all be generic components
+ * - more reliable merch links
+ * - mobile friendly
+ * - better stale token handling
+ * - CSS on root should apply to everything
+ * - favicon link in messages doesn't work
+ * - copy improvements
+ * - all CSS should live in shallan - these should all be generic components
  */
 
 const css = {
@@ -101,6 +100,13 @@ const css = {
     height: 25,
     width: 25,
     marginRight: 10,
+  },
+  message: {
+    position: 'fixed',
+    top: 40,
+    right: 20,
+    backgroundColor: 'white',
+    padding: 20,
   }
 };
 
@@ -118,12 +124,12 @@ const Connect = props => (
 );
 
 const Artists = props => {
-  const { topArtists } = props;
+  const { topArtists, setMessage } = props;
   const artistsWithFewestFollowers = sortBy(topArtists, (item) => item.followers.total).slice(0, 18);
 
   return (
     <div css={css.artistsContainer}>
-      {artistsWithFewestFollowers.map(artist => <ArtistCard artist={artist} />)}
+      {artistsWithFewestFollowers.map(artist => <ArtistCard setMessage={setMessage} artist={artist} />)}
     </div>
   );
 }
@@ -140,9 +146,15 @@ const Content = props => {
 
 const App = props => {
   const content = Content(props);
+  const { message } = props;
 
   return (
     <div css={css.app}>
+      {!!message && (
+        <div css={css.message}>
+          {message}
+        </div>
+      )}
       <div css={css.contents}>
         <div css={css.header}>
           <img css={css.logo} src={HipstifyLogo} alt='hipstify' />
@@ -156,6 +168,7 @@ const App = props => {
 
 export default compose(
   withState('topArtists', 'setTopArtists', []),
+  withState('message', 'setMessage', null),
   withState('accessToken', 'setAccessToken', null),
   lifecycle({
     componentDidMount() {
